@@ -1,0 +1,11 @@
+<% @messages.each do |msg| %>
+    <tr>
+    <td><%= check_box_tag "selectmultiple[]",  msg.id %></td>
+    <td><%= User.where(:id => msg.receiver_id).first.email %></td>
+    <td><%= msg.subject %></td>
+    <td><%= msg.messages %></td>
+    <td><%= link_to 'reply' , reply_outbox_message_message_path(:id => msg.receiver_id) %>
+        <%= link_to 'delete', destroy_outbox_message_message_path(msg),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>

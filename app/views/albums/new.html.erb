@@ -1,0 +1,10 @@
+<div id="albumdiv">
+<%= link_to '' , homes_path ,:class =>'  glyphicon glyphicon-circle-arrow-left'%>
+
+<%= form_for :album, :url => albums_path, :html => { :multipart => true } , method: :post do |f| %> 
+  <%= f.hidden_field :user_id , :value => current_user.id %>   
+  <div><%= f.label :Select_Album_Photos%><br />
+       <%= f.file_field :album_photo %></div>
+  <div><%= f.submit "Save" %></div>
+<% end %>
+</div>

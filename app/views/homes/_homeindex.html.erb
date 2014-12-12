@@ -1,0 +1,129 @@
+<%= render "homes/homealbumindex" %>
+<%= render "homes/homesearchbar" %>
+
+<%= form_tag  destroy_multiple_home_path([:selectmultiple]), method: :delete  do %>
+
+<% if current_user.role_id == 1 %>
+
+<%= submit_tag  'Delete'  , :class => ' glyphicon glyphicon-trash' , :id => "deletecheckboxbutton" %>
+<% end %>
+
+<table class="table table-striped">
+  <tr class="info">
+    <% if current_user.role_id == 1 %>
+      <th><%= check_box_tag "selectallmultiple[]"  %>Select All</th>
+    <% end %>
+    <th>Profile_Image</th>
+    <th>Name</th>
+    <th>Email</th> 
+    <th>Action</th>  
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <% if current_user.id != user.id %>
+      <% if current_user.role_id == 1 %>
+        <td><%= check_box_tag "selectmultiple[]",  user.id %></td>
+      <% end %>
+      <td><%= image_tag user.profile_photo.url(:thumb) , :id => "homeindexpageprofileimage" %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td> 
+        <%= link_to '' , new_message_path(:id => user.id) ,:class => 'glyphicon glyphicon-envelope' %>
+        <%# debugger %>
+        <%= link_to '', home_path(:id => user.id) ,:class => 'glyphicon glyphicon-star'%>
+        <% if current_user.role_id == 1  %>
+          <%= link_to '', edit_home_path(:id => user.id) , :class => 'glyphicon glyphicon-edit'%>
+          <%= link_to '', home_path(user) ,
+                    method: :delete, data: { confirm: 'Are you sure'  } ,:class => ' glyphicon glyphicon-trash'  %>
+        <% end %></td>
+    <% end %>  <!-- end if condition -->
+  </tr>
+  <% end %> <!--  end each do loop -->
+</table>
+<% end %> <!-- end form_tag  -->
+<%= render "homes/homeindexpagination" %>
+
+<script type="text/javascript">
+  $('#selectallmultiple_').click(function() {
+   if (this.checked) {
+       $(':checkbox').each(function() {
+           this.checked = true;                        
+       });
+   } else {
+      $(':checkbox').each(function() {
+           this.checked = false;                        
+       });
+   } 
+});
+
+$(function() {
+    $('#selectmultiple_').change(function() {
+        if (this.checked) {
+          // alert("checking")
+            $('#deletecheckboxbutton').attr('disabled', false).css({
+                color: 'red'
+            });
+        } else {
+            $('#deletecheckboxbutton').attr('disabled', true).css({
+                color: 'black'
+            });
+        }
+    });
+});
+
+$(function() {
+    $('#selectallmultiple_').change(function() {
+        if (this.checked) {
+          // alert("checking")
+            $('#deletecheckboxbutton').attr('disabled', false).css({
+                color: 'red'
+            });
+        } else {
+            $('#deletecheckboxbutton').attr('disabled', true).css({
+                color: 'black'
+            });
+        }
+    });
+});
+
+
+// $(function(){
+
+// $('#'+ user.id).bind("ajax:success",function(data, status, xhr){
+//     ("<h1>hello</h1>").appendTo("#showJob") 
+// })
+
+// })
+
+  
+// $('#showprofile').bind('ajax:complete', function() {  
+//         $('#replaced').html(data)
+// });  
+ 
+
+// $(document).ready(function() {
+// $('.showprofile').click(function () {
+// var Url = $(this).attr('href');
+// var Data = $(this).attr('show');
+// $(this).closest('p').fadeOut(1000);
+// $.post(Url);
+// return false;
+// });
+// });
+
+// $.ajax({
+//   url: home_path),
+//   type: 'show',
+//   success: function(:id => user.id) {
+//     // Do something with the result
+//   }
+// });
+
+// $.ajax({
+//   url: $("home_path").attr("show"),
+//   type: "post",
+//   // data: formdata,
+//   processData: false,
+//   contentType: false
+// });
+</script>

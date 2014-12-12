@@ -1,0 +1,68 @@
+<%= link_to '' , homes_path  ,:class =>'  glyphicon glyphicon-circle-arrow-left'%>
+<%= form_tag  restore_multiple_home_path([:selectmultiple]), method: :delete  do %>
+<%= submit_tag  'Restore'  , :class => ' glyphicon glyphicon-trash' , :id => "deletecheckboxbutton" %>
+<table class="table table-striped" >
+  <tr class="info">
+    <th><%= check_box_tag "selectallmultiple[]"  %> SelectAll</th>
+    <th>Action</th>
+    <th>Profile_Image</th>
+    <th>Name</th>
+    <th>Email</th>   
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+    <td><%= check_box_tag "selectmultiple[]",  user.id %></td>
+    <td><%= link_to '', restore_home_path(user) ,
+                    method: :delete, :class => 'glyphicon glyphicon-registration-mark' %>
+        <%= link_to '', destroy_restore_home_path(user) ,
+                    method: :delete, data: { confirm: 'Are you sure?' }, :class => 'glyphicon glyphicon-trash' %></td>
+    <td><%= image_tag user.profile_photo.url(:thumb) , :id => "homeindexpageprofileimage" %></td>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    </tr>
+  <% end %> <!--  end each do loop -->
+</table>
+<% end %>   <!--  end form tag -->
+<script type="text/javascript">
+  $('#selectallmultiple_').click(function() {
+   if (this.checked) {
+       $(':checkbox').each(function() {
+           this.checked = true;                        
+       });
+   } else {
+      $(':checkbox').each(function() {
+           this.checked = false;                        
+       });
+   } 
+});
+
+$(function() {
+    $('#selectmultiple_').change(function() {
+        if (this.checked) {
+          // alert("checking")
+            $('#deletecheckboxbutton').attr('disabled', false).css({
+                color: 'red'
+            });
+        } else {
+            $('#deletecheckboxbutton').attr('disabled', true).css({
+                color: 'black'
+            });
+        }
+    });
+});
+
+$(function() {
+    $('#selectallmultiple_').change(function() {
+        if (this.checked) {
+          // alert("checking")
+            $('#deletecheckboxbutton').attr('disabled', false).css({
+                color: 'red'
+            });
+        } else {
+            $('#deletecheckboxbutton').attr('disabled', true).css({
+                color: 'black'
+            });
+        }
+    });
+});
+</script>

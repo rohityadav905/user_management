@@ -1,0 +1,16 @@
+<%= link_to '' , homes_path  ,:class =>'  glyphicon glyphicon-circle-arrow-left'%>
+<div class="owl-carousel">
+<% @albums.each do |album| %>
+  <div>
+   <%= image_tag album.album_photo.url(:thumb) , :id => 'albumphotoid' %> 
+  </div>
+ <% end %>
+</div>
+<script>
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel();
+});
+</script>
+
+
+

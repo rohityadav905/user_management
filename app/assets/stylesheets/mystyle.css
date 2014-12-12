@@ -1,0 +1,62 @@
+#deviseeditpage{
+	margin-left: 426px;
+}
+#devisesignuppage{
+	margin-left: 426px;
+}
+#devisesigninpage{
+	margin-left: 426px;
+	margin-top: 60px;
+}
+#user_email{
+	width: 324px;
+}
+#user_password{
+	width: 324px;
+}
+#user_password_confirmation{
+	width: 324px;
+}
+#user_name{
+	width: 324px;
+}
+#user_current_password{
+	width: 324px;
+}
+/*.glyphicon.glyphicon-trash {
+    color: red;
+}*/
+
+.navbar-collapse {
+    padding-left: 120px;
+    margin-top: 10px;
+}
+
+element.style {
+    margin-left: 37px;
+    margin-right: 39px;
+}
+
+form {
+    /*margin-left: 37px;
+    margin-right: 39px;*/
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top: 2px solid #ddd;
+    line-height: 0.429;
+    padding: 11px;
+    vertical-align: inherit;
+    background-color: #d9edf7;
+}
+.table > thead > tr > td.info, .table > tbody > tr > td.info, .table > tfoot > tr > td.info, .table > thead > tr > th.info, .table > tbody > tr > th.info, .table > tfoot > tr > th.info, .table > thead > tr.info > td, .table > tbody > tr.info > td, .table > tfoot > tr.info > td, .table > thead > tr.info > th, .table > tbody > tr.info > th, .table > tfoot > tr.info > th {
+    background-color:           #B0E0E6;
+}
+.nav a{
+    background-color: PowderBlue      !important;
+  }
+#deletecheckboxbutton{
+    background-color: #B0E0E6;
+}
+#homesearchbutton{
+    background-color: #B0E0E6;
+}

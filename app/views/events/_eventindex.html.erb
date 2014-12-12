@@ -1,0 +1,14 @@
+<% @events.each do |event| %>
+    <tr>
+    <td><%= image_tag event.event_logo.url(:thumb) %></td>
+    <td><%= event.title %></td>
+    <td><%= event.location %></td>
+    <td><%= event.start_event.strftime("%d/%m/%Y") %></td>
+    <td><%= event.end_event.strftime("%d/%m/%Y") %></td>
+    <td><%= event.event_description %></td>
+    <td><%= event.organizer_name %></td>
+    <td><%= event.organizer_description %></td>
+    <td><%= Eventtype.where(:id => event.eventtype_id).first.event_type %></td>
+    <td><%= Eventtopic.where(:id => event.eventtopic_id).first.event_topic %></td>
+   </tr>
+  <% end %>

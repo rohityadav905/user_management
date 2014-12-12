@@ -1,0 +1,8 @@
+<!-- Search Bar -->
+<%= form_tag homes_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] , :placeholder => "search" %>
+    <%= submit_tag "Search", :id => "homesearchbutton" %>
+  </p>
+<% end %>
+<!-- Search bar end -->

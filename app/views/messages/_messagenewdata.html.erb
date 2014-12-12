@@ -1,0 +1,19 @@
+<%= form_for :message, url: messages_path , :html => { :multipart => true }, method: :post do |f| %>
+
+  <div><%= f.label :To %><br />
+    <%= f.email_field :email, :value => @user.email %></div>
+    <%= f.hidden_field :receiver_id , :value => @user.id %>
+    <%= f.hidden_field :sender_id , :value => current_user.id %>
+    <%= f.hidden_field :trash , :value => "false" %>
+
+  <div><%= f.label :Subject %><br />
+    <%= f.text_field :subject %></div>
+
+  <div><%= f.label :Message %><br />
+    <%= f.text_area :messages %></div>
+
+  <div><%= f.label :Attachment %><br />
+    <%= f.file_field :sendfile %></div>
+
+  <div><%= f.submit "Send" %></div>
+<% end %>

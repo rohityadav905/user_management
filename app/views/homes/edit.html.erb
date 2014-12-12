@@ -1,0 +1,24 @@
+<div id="homeeditpage">
+<%= link_to '' , homes_path  ,:class =>'  glyphicon glyphicon-circle-arrow-left'%>
+
+<%= form_for :user, url: home_path(@user), method: :patch do |f| %>
+
+  <div><%= f.label :Email %><br />
+    <%= f.email_field :email, autofocus: true %></div>
+
+  <div><%= f.label :Password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <div><%= f.label :Password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+  <div><%= f.label :Name %><br />
+    <%= f.text_field :name %></div>
+
+  <div><%= f.label :Profile_Image %><br />
+    <%= f.file_field :profile_photo %></div>
+
+
+  <div><%= f.submit "update" %></div>
+<% end %>
+</div>

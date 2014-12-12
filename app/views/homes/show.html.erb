@@ -1,0 +1,20 @@
+<div id="show">
+<%= link_to '' , homes_path  ,:class =>'  glyphicon glyphicon-circle-arrow-left'%>
+
+    </div>
+
+<table class="table table-striped"  >
+<tr>
+	<td>ProfileImage:</td>
+ 	<td><%= image_tag @user.profile_photo.url(:thumb) , :id => "homeshowimageid" %></td>
+</tr>
+<tr>
+	<td>Name</td>
+	<td><%= @user.name %></td>
+</tr>
+<tr>
+	<td>Email</td>
+	<td> <%= @user.email %></td>
+</tr>
+</table>
+ </div>

@@ -1,0 +1,39 @@
+
+<%= form_for :event, :url => events_path, :html => { :multipart => true } do |f| %>
+  
+  <div><%= f.label :Title %><br />
+    <%= f.text_field :title %>
+    <%= f.hidden_field :user_id , :value => @user.id%></div>
+
+  <div><%= f.label :Location %><br />
+    <%= f.text_field :location %></div>
+
+  <div><%= f.label :Start_event %><br />
+    <%= f.date_select :start_event  , :start_year => 2014, :end_year => 2020 %></div>
+
+  <div><%= f.label :End_Event %><br />
+    <%= f.date_select :end_event , :start_year => 2014, :end_year => 2020  %></div>
+
+  <div><%= f.label :Event_Description %><br />
+    <%= f.text_area :event_description %></div>
+
+  <div><%= f.label :Organizer_Name %><br />
+    <%= f.text_field :organizer_name %></div>
+
+  <div><%= f.label :Organizer_Description %><br />
+    <%= f.text_area :organizer_description %></div>
+
+     
+  <div><%= f.label :Event_Type%><br />
+     <%= f.select :eventtype_id , options_for_select(Eventtype.all.collect{ |u| [u.event_type ,u.id] })%></div>
+
+  <div><%= f.label :Event_Topic%><br />
+     <%= f.select :eventtopic_id , options_for_select(Eventtopic.all.collect{ |u| [u.event_topic ,u.id] })%></div>
+
+  <div><%= f.label :Event_Logo%><br />
+     <%= f.file_field :event_logo %></div>
+      <%#= f.hidden_field :eventmsg_id , :value => current_user.id %>
+
+
+  <div><%= f.submit "Save" %></div> 
+<% end %>

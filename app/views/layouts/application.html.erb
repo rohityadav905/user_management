@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UserManagement</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if user_signed_in? %> 
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to 'Home', homes_path %></li>
+        <li class="active"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+        <li class="active" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Messages <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="active"> <%= link_to 'Inbox' , inbox_message_path(:id => current_user.id)%>
+</li>
+            <li class="active"> <%= link_to 'Outbox' , outbox_message_path(:id => current_user.id)%></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="active" class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="active" ><%= link_to 'Create Event' , new_event_path(:id => current_user.id) %></li>
+            <li class="active">  <%= link_to 'See Event' , events_path %></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+      
+        <li class="active" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Album <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="active"><%= link_to 'Create Album' , new_album_path(:id => current_user.id) %></li>
+            <li class="active"> <%= link_to 'See Album' , albums_path(:id => current_user.id)%></li>
+
+          </ul>
+        </li>
+        <% if current_user.role_id == 1 %>
+        <li class="active"><%= link_to 'Trash', trash_home_path(current_user.id), :class => 'navbar-link' %></li>
+        <li class="active"><%= link_to "Create New User", new_home_path %></li>
+        <li class="active"><%#= link_to "Delete Account", home_path(:id => current_user.id), data: { confirm: "Are you sure?" }, method: :delete %></li>
+        <% end %>
+      </ul>
+
+      <ul class="nav navbar-nav" >
+        <li class ="active" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= image_tag current_user.profile_photo.url(:thumb) , :id => "navprofileimage" %><%= current_user.email.split("@").first %> <span class="caret"></span></a>
+          <ul class="dropdown-menu"  role="menu">
+            <li class="active"><%= link_to 'Profile' , home_path(:id => current_user.id) %></li>
+            <li class="active"> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<% else %>
+  <%#= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
+  <%#= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+  <%#= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
+  <%#= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+<% end %>
+<%= yield %>
+
+</body>
+</html>
+

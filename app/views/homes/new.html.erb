@@ -1,0 +1,25 @@
+<div id="homeeditpage">
+<%= link_to '' , homes_path  ,:class =>'  glyphicon glyphicon-circle-arrow-left'%>
+
+<%= form_for :user, url: homes_path , :html => { :multipart => true } , method: :post do |f| %>
+
+  <div><%= f.label :Email %><br />
+    <%= f.email_field :email , :placeholder => "enter emailid" %></div>
+
+  <div><%= f.label :Password %><br />
+    <%= f.password_field :password   , :placeholder => "enter password"%></div>
+
+  <div><%= f.label :Password_confirmation %><br />
+    <%= f.password_field :password_confirmation  , :placeholder => "password confirmation"%></div>
+
+  <div><%= f.label :Name %><br />
+    <%= f.text_field :name  , :placeholder => "enter your name"%></div>
+    <%= f.hidden_field :trash , :value => "false" %>
+    <%= f.hidden_field :role_id , :value => "3" %>
+
+  <div><%= f.label :Profile_Image %><br />
+    <%= f.file_field :profile_photo %></div>
+
+  <div><%= f.submit "Save" %></div>
+<% end %>
+</div>

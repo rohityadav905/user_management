@@ -1,0 +1,17 @@
+<%= link_to '' , homes_path  ,:class =>'  glyphicon glyphicon-circle-arrow-left'%>
+
+<%= form_tag  destroy_multiple_messages_message_path([:selectmultiple]), method: :delete do %>
+<%= submit_tag  'delete'  , :class => ' glyphicon glyphicon-trash' , :id =>"deletemessagecheckbox" %>
+
+<table class="table table-striped">
+  <tr>
+    <th>Select</th>
+    <th>From</th>
+    <th>Subject</th>
+    <th>Messages</th>
+    <th>Action</th>
+  </tr>
+ 
+  <%= render "messages/messageinboxlinks" %>
+</table>
+<% end %>

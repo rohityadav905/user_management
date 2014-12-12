@@ -1,0 +1,36 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pagination {
+    margin-left: 450px;
+    margin-top: 50px;
+    padding: 6px 14px;
+}
+#search{
+	margin-left: 850px;
+}
+#homeeditpage{
+	margin-left: 426px;
+}
+#navprofileimage{
+	border-radius: 30px;
+    width: 33px;
+    height: 17px;
+}
+#homeshowimageid{
+	border-radius: 40px;
+	width: 100px;
+}
+#homeindexpageprofileimage{
+	border-radius: 40px;
+	width: 70px;
+}
+#albumhomephotoid{
+	border-radius: 40px;
+	width: 99px;
+	height: 70px;
+}
+body {
+    background-color: Lavender ;
+}
