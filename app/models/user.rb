@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
           #refresh_token: access_token[:credentials][:refresh_token],
           token: access_token[:credentials][:token],
           trash: false,
-          role_id: "3"
+          role_id: "1"
            )
         end
     end
@@ -88,5 +88,9 @@ class User < ActiveRecord::Base
   def self.homecreate(user_p)
     @user = User.new(user_p)
     @user.save
+  end
+  
+  def gmaps4rails_address
+    "#{country}, #{state}"
   end
 end

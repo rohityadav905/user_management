@@ -11,9 +11,9 @@
  * file per style scope.
  *
  *= require jquery.rambling.slider
- *= require_tree .
  *= require_self
- *= require bootstrap_and_overrides.css.less
  *= require owl.carousel
  *= require owl.theme
+ *= require bootstrap_and_overrides
+ *= require_tree .
  */

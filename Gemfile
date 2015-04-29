@@ -54,4 +54,6 @@ gem 'gmail_xoauth'
 gem 'gmail_oauth'
 gem 'omniauth-facebook'
 gem 'email_verifier'
+gem 'autoprefixer-rails'
+gem 'gmaps4rails'
 

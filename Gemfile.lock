@@ -45,6 +45,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (4.0.1)
+      execjs
     bcrypt (3.1.7)
     bootstrap-kaminari-views (0.0.5)
       kaminari (>= 0.13)
@@ -85,6 +87,7 @@ GEM
       mime (>= 0.1)
     gmail_xoauth (0.4.1)
       oauth (>= 0.3.6)
+    gmaps4rails (2.1.2)
     hashie (3.3.1)
     hike (1.2.3)
     i18n (0.6.11)
@@ -210,6 +213,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bootstrap-kaminari-views
   bootstrap-sass
   coffee-rails (~> 4.0.0)
@@ -217,6 +221,7 @@ DEPENDENCIES
   email_verifier
   gmail_oauth
   gmail_xoauth
+  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
